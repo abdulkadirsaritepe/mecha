@@ -13,11 +13,11 @@ import time, sys, datetime, json, sqlite3
 if sys.platform == "linux":
     import RPi.GPIO as GPIO
     import mfrc522
-    logDir = "/home/pi/asbot/mekanik/cogs/Logs" #! 
+    logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
 else:
     GPIO = None
     mfrc522 = None
-    logDir = "C:\Dev\Github\src\mekanik\cogs\Logs"
+    logDir = "C:\Dev\Github\src\mecha\cogs\Logs"
 
 class RPi:
     def __init__(self) -> None:

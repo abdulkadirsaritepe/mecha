@@ -11,11 +11,11 @@ class Console(Cog):
         self.bot = bot
         if sys.platform == "linux":
             rpi_os = True
-            self.logDir = "/home/pi/asbot/mekanik/cogs/Logs" #! 
+            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
             self.adminLogDir = f'{self.logDir}/admin.json'
         else:
             rpi_os = False
-            self.logDir = "C:\Dev\Github\src\mekanik\cogs\Logs"
+            self.logDir = "C:\Dev\Github\src\mecha\cogs\Logs"
             self.adminLogDir = f'{self.logDir}\\admin.json'
         self.bot_name = bot_name
         self.console_info = {} # * {"guild":----, "channel":----, "webhook":----}

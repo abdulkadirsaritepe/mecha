@@ -14,12 +14,12 @@ class ReactionApplications(Cog):
         self.console = console
         if sys.platform == "linux":
             rpi_os = True
-            self.logDir = "/home/pi/asbot/mekanik/cogs/Logs" #! 
+            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
             self.appsLogDir = f'{self.logDir}/reactionapps.json'
             self.adminLogDir = f'{self.logDir}/admin.json'
         else:
             rpi_os = False
-            self.logDir = "C:\Dev\Github\src\mekanik\cogs\Logs"
+            self.logDir = "C:\Dev\Github\src\mecha\cogs\Logs"
             self.appsLogDir = f'{self.logDir}\\reactionapps.json'
             self.adminLogDir = f'{self.logDir}\\admin.json'
         self.roleApplications = {} # * {guildId:{channelId:{messageId:{emojiID1:roleID1, emojiID2:roleID2, ...}, ...}, ...}, ...}

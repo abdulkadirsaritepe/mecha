@@ -11,11 +11,11 @@ class Youtube(Cog):
         self.console = console
         if sys.platform == "linux":
             rpi_os = True
-            self.logDir = "/home/pi/asbot/mekanik/cogs/Logs" #! 
+            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
             self.accountsLogDir = f'{self.logDir}/socialmedia.json'
         else:
             rpi_os = False
-            self.logDir = "C:\Dev\Github\src\mekanik\cogs\Logs"
+            self.logDir = "C:\Dev\Github\src\mecha\cogs\Logs"
             self.accountsLogDir = f'{self.logDir}\socialmedia.json'
         # dictionary variable to store youtube channels informations for checking.
         self.accounts = {}
@@ -174,11 +174,11 @@ class Instagram(Cog):
         self.bot = bot
         if sys.platform == "linux":
             rpi_os = True
-            self.logDir = "/home/pi/asbot/mekanik/cogs/Logs" #! 
+            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
             self.accountsLogDir = f'{self.logDir}/socialmedia.json'
         else:
             rpi_os = False
-            self.logDir = "C:\Dev\Github\src\mekanik\cogs\Logs"
+            self.logDir = "C:\Dev\Github\src\mecha\cogs\Logs"
             self.accountsLogDir = f'{self.logDir}\socialmedia.json'
         self.console = console
         # dictionary variable to store instagram accounts' informations for checking.

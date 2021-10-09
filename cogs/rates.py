@@ -12,13 +12,13 @@ class Rates(Cog):
         self.bot = bot
         if sys.platform == "linux":
             rpi_os = True
-            self.imagesDir = "/home/pi/asbot/mekanik/cogs/Images" #! 
-            self.logDir = "/home/pi/asbot/mekanik/cogs/Logs" #! 
+            self.imagesDir = "/home/pi/asbot/mecha/cogs/Images" #! 
+            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
             self.ratesLogDir = f'{self.logDir}/updates.json'
         else:
             rpi_os = False
-            self.imagesDir = "C:/Dev/Github/src/mekanik/cogs/Images"
-            self.logDir = "C:\Dev\Github\src\mekanik\cogs\Logs"
+            self.imagesDir = "C:/Dev/Github/src/mecha/cogs/Images"
+            self.logDir = "C:\Dev\Github\src\mecha\cogs\Logs"
             self.ratesLogDir = f'{self.logDir}\\updates.json'
 
         self.ratesLog = {} # * {guildId:{channel:----, message:----}, ...}
