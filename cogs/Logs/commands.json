@@ -1,0 +1,26 @@
+{
+    "doorStatusNotificationChannels": {
+        "743711488220594217": 794842795986780160
+    },
+    "public": {
+        "botResponds": {
+            "g\u00fcnayd\u0131n": "G\u00fcnayd\u0131n",
+            "sa": "AS",
+            "nas\u0131ls\u0131n garda\u015f\u0131m": "\u0130yiyim garda\u015f\u0131m sen nas\u0131ls\u0131n?",
+            "iyi geceler": "\u0130yi Geceler.",
+            "iyi ak\u015famlar": "\u0130yi Ak\u015famlar.",
+            "\u0130yi geceler": "\u0130yi Geceler.",
+            "\u0130yi ak\u015famlar": "\u0130yi Ak\u015famlar.",
+            "iyi dersler": "\u0130yi dersler.",
+            "\u0130yi dersler": "\u0130yi dersler.",
+            "\u0130yi bayramlar": "\u0130yi Bayramlar.",
+            "iyi bayramlar": "\u0130yi bayramlar."
+        },
+        "botResponds2": {}
+    },
+    "699224778824745003": {
+        "botResponds": {},
+        "botResponds2": {},
+        "filterSettings": {}
+    }
+}

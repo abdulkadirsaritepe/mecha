@@ -1,0 +1,23 @@
+{
+    "sudo_password": "asadmin",
+    "sudo_password_rpi": "mergenAS",
+    "admin_guild": 699224778824745003,
+    "superadmin_id": 565956579300737026,
+    "console_channel": 886889734759120936,
+    "console_webhook": null,
+    "main_bot": {
+        "name": "Wrench",
+        "prefix": "!!",
+        "token": "Njk4NDQ5OTUzMDA5NDM0Njk0.XpGANQ.SrS7X_kRumepI0tqP5WDV7cIMpY"
+    },
+    "mecha": {
+        "name": "Mecha",
+        "prefix": "&",
+        "token": "NzU2OTM4NzE2NjUxNDU0NTQ1.X2ZIHQ.rFZVnxMufC89mKR0auyQOuF-YBs",
+        "servers": []
+    },
+    "instagram_login_info": {
+        "username": null,
+        "password": null
+    }
+}
