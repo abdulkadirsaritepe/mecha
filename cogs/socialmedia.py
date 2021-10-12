@@ -175,10 +175,12 @@ class Instagram(Cog):
         if sys.platform == "linux":
             rpi_os = True
             self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
+            self.adminLogDir = f'{self.logDir}/admin.json'
             self.accountsLogDir = f'{self.logDir}/socialmedia.json'
         else:
             rpi_os = False
             self.logDir = "C:\Dev\Github\src\mecha\cogs\Logs"
+            self.adminLogDir = f'{self.logDir}\\admin.json'
             self.accountsLogDir = f'{self.logDir}\socialmedia.json'
         self.console = console
         # dictionary variable to store instagram accounts' informations for checking.
@@ -199,7 +201,7 @@ class Instagram(Cog):
         await self.console.print_console(level=2, number='8001', logText='Instagram post check task has been started.')
     
     async def get_login_info(self):
-        with open(f'{self.logDir}\\admin.json') as loginInfoFile:
+        with open(self.adminLogDir) as loginInfoFile:
             data = json.load(loginInfoFile)
             self.login_info = [(data["instagram_login_info"])["username"], (data["instagram_login_info"])["password"]]
         await self.console.print_console(level=2, number='8002', logText='Instagram Login Information has been taken.')
