@@ -43,7 +43,7 @@ else:
 	adminLogDir = f'{logDir}\\admin.json'
 
 # Import function files
-from cogs.console import Console
+from cogs.console import Console # TODO
 		
 # Take admin data
 with open(adminLogDir) as adminLogFile:
