@@ -40,7 +40,7 @@ class Commands(Cog):
         await self.initializeLog("public")
         for guild in self.bot.guilds:
             await self.initializeLog(int(guild.id))
-        await self.initializeDoorLog(699224778824745003) # TODO 743711488220594217
+        await self.initializeDoorLog(743711488220594217) # TODO 743711488220594217 699224778824745003
         await self.console.print_console(level=2, number="0001", logText=f'Commands Class has been started.')
         if self.rpi_os:
             self.door_check.start()
@@ -58,7 +58,7 @@ class Commands(Cog):
                 self.botResponds2.update({int(guildId):dict((self.logs[str(guildId)])["botResponds2"])})
                 await self.console.print_console(level=2, number="1001", logText=f"Bot responds for guild {guildId} have been initialized.")
             except Exception as Err:
-                await self.console.print_console(level=4, number="1002", logText=f'{Err} raised at Commands/initializeLog.')
+                await self.console.print_console(level=3, number="1002", logText=f'There is no info about guild {guildId} - Commands/initializeLog.')
                 print(f'Errorx1002: {Err}')
                 pass # TODO Add "guildId" keyword to the JSON file.
         else:
