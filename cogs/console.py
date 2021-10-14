@@ -25,7 +25,9 @@ class Console(Cog):
         with open(self.adminLogDir) as adminLogFile:
             data = json.load(adminLogFile)
         try:
-            console_guild = self.bot.get_guild(id=int(data["admin_guild"]))
+            console_guild = None
+            while console_guild == None:
+                console_guild = self.bot.get_guild(id=int(data["admin_guild"]))
             console_channel = None
             while console_channel == None:
                 console_channel = discord.utils.get(console_guild.text_channels, id=int(data["console_channel"]))
