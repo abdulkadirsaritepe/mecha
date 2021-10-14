@@ -26,7 +26,9 @@ class Console(Cog):
             data = json.load(adminLogFile)
         try:
             console_guild = self.bot.get_guild(id=int(data["admin_guild"]))
-            console_channel = discord.utils.get(console_guild.text_channels, id=int(data["console_channel"]))
+            console_channel = None
+            while console_channel == None:
+                console_channel = discord.utils.get(console_guild.text_channels, id=int(data["console_channel"]))
             console_webhook = await self.get_webhook((data[str(self.bot_name).lower()])["console_webhook"], console_channel)
             self.console_info = {"guild":console_guild, "channel":console_channel, "webhook":console_webhook}
             await self.print_console(level=2, number='0000', logText=f'Console Webhook has been started! - {str(console_webhook.url)}')
