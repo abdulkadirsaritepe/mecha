@@ -17,7 +17,7 @@ class Commands(Cog):
         self.bot_name = str(bot_name).lower()
         if sys.platform == "linux":
             self.rpi_os = True
-            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
+            self.logDir = "/home/pi/asbot/Logs" #! 
             self.commandLogDir = f'{self.logDir}/commands.json'
             self.adminLogDir = f'{self.logDir}/admin.json'
         else:

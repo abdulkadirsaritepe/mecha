@@ -13,7 +13,7 @@ import time, sys, datetime, json, sqlite3
 if sys.platform == "linux":
     import RPi.GPIO as GPIO
     import mfrc522
-    logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
+    logDir = "/home/pi/asbot/Logs" #! 
 else:
     GPIO = None
     mfrc522 = None

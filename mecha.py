@@ -23,7 +23,7 @@ if sys.platform == "linux":
 	rpi_os = True
 	import RPi.GPIO as GPIO
 	mainDir = "/home/pi/asbot/mecha" #! 
-	logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
+	logDir = "/home/pi/asbot/Logs" #! 
 	adminLogDir = f'{logDir}/admin.json'
 else:
 	GPIO = None

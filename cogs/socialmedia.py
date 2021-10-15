@@ -11,7 +11,7 @@ class Youtube(Cog):
         self.console = console
         if sys.platform == "linux":
             rpi_os = True
-            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
+            self.logDir = "/home/pi/asbot/Logs" #! 
             self.accountsLogDir = f'{self.logDir}/socialmedia.json'
         else:
             rpi_os = False
@@ -174,7 +174,7 @@ class Instagram(Cog):
         self.bot = bot
         if sys.platform == "linux":
             rpi_os = True
-            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
+            self.logDir = "/home/pi/asbot/Logs" #! 
             self.adminLogDir = f'{self.logDir}/admin.json'
             self.accountsLogDir = f'{self.logDir}/socialmedia.json'
         else:

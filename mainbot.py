@@ -32,7 +32,7 @@ def rpi_start(start_type):
 if sys.platform == "linux":
 	rpi_os = True
 	mainDir = "/home/pi/asbot/mecha" #!
-	logDir = "/home/pi/asbot/mecha/cogs/Logs" #!
+	logDir = "/home/pi/asbot/Logs" #!
 	adminLogDir = f'{logDir}/admin.json'
 	requirementsDir = f'{mainDir}/requirements.txt'
 	rpi_start(start_type="start") # TODO

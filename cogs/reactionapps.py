@@ -14,7 +14,7 @@ class ReactionApplications(Cog):
         self.console = console
         if sys.platform == "linux":
             rpi_os = True
-            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
+            self.logDir = "/home/pi/asbot/Logs" #! 
             self.appsLogDir = f'{self.logDir}/reactionapps.json'
             self.adminLogDir = f'{self.logDir}/admin.json'
         else:

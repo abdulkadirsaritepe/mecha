@@ -11,7 +11,7 @@ class Console(Cog):
         self.bot = bot
         if sys.platform == "linux":
             rpi_os = True
-            self.logDir = "/home/pi/asbot/mecha/cogs/Logs" #! 
+            self.logDir = "/home/pi/asbot/Logs" #! 
             self.adminLogDir = f'{self.logDir}/admin.json'
         else:
             rpi_os = False
