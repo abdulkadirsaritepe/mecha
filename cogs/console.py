@@ -20,6 +20,7 @@ class Console(Cog):
             self.adminLogDir = f'{self.logDir}\\admin.json'
         self.bot_name = bot_name
         self.console_info = {} # * {"guild":----, "channel":----, "webhook":----}
+        self.console_channel = None
         self.levels = {0:'```\n[PRINT]', 1:'```re\n[STATE]', 2:'```ini\n[INFO]', 3:'```fix\n[WARN]', 4:'```css\n[ERROR]', 5:'```\n[INPUT]', 6:'```\n[OUTPUT]'}
     
     async def get_console_info(self):
@@ -78,6 +79,7 @@ class Console(Cog):
             while console_channel == None:
                 console_channel = discord.utils.get(console_guild.text_channels, id=int(data["console_channel"]))
             await self.print_console(level=2, number='0000', logText=f'Console Channel Id has been taken! - {str(console_channel.id)}')
+            self.console_channel = console_channel
         except Exception as Err:
             print(f'Errorx0000: {Err}')
 
