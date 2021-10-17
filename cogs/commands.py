@@ -40,7 +40,7 @@ class Commands(Cog):
         await self.initializeLog("public")
         for guild in self.bot.guilds:
             await self.initializeLog(int(guild.id))
-        await self.initializeDoorLog(743711488220594217) # TODO 743711488220594217 699224778824745003
+        await self.initializeDoorLog(699224778824745003) # TODO 743711488220594217 699224778824745003
         await self.console.print_console(level=2, number="0001", logText=f'Commands Class has been started.')
         if self.rpi_os:
             self.door_check.start()
