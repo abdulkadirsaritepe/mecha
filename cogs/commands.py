@@ -44,6 +44,7 @@ class Commands(Cog):
         await self.console.print_console(level=2, number="0001", logText=f'Commands Class has been started.')
         if self.rpi_os:
             self.door_check.start()
+            await self.console.print_console(level=2, number="0002", logText=f'Door check has been started.')
 
     async def initializeLog(self, guildId):
         if guildId != "public":
