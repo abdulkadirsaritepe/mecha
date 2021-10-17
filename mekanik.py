@@ -61,7 +61,7 @@ async def on_connect():
 	# waiting until the bot is ready.
 	await client.wait_until_ready()
 	# getting console webhook
-	await console.get_console_info()
+	await console.get_channel()    #! get_console_info()
 	# after bot is ready, the function finishes.
 	print(f'{bot_name} is ready.')
 	await console.print_console(level=1, number='9990', logText=f'{bot_name} has been started.')
