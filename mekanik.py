@@ -58,18 +58,18 @@ console = Console(client, bot_name)
 @client.event
 async def on_connect():
 	print('waiting...')
-	# getting console webhook
-	await console.get_console_info()
 	# waiting until the bot is ready.
 	await client.wait_until_ready()
+	# getting console webhook
+	await console.get_console_info()
 	# after bot is ready, the function finishes.
 	print(f'{bot_name} is ready.')
+	await console.print_console(level=1, number='9990', logText=f'{bot_name} has been started.')
 
 # when the bot is ready, it changes its activity string.
 @client.event
 async def on_ready():
 	await client.change_presence(activity=discord.Game(name="with 🛠"))
-	await console.print_console(level=1, number='9990', logText=f'{bot_name} has been started.')
 
 # Add imported functions
 client.add_cog(Commands(client, bot_name, console))
