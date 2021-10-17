@@ -78,8 +78,8 @@ class Console(Cog):
             console_channel = None
             while console_channel == None:
                 console_channel = discord.utils.get(console_guild.text_channels, id=int(data["console_channel"]))
-            await self.print_console(level=2, number='0000', logText=f'Console Channel Id has been taken! - {str(console_channel.id)}')
             self.console_channel = console_channel
+            await self.print_console(level=2, number='0000', logText=f'Console Channel Id has been taken! - {str(console_channel.id)}')
         except Exception as Err:
             print(f'Errorx0000: {Err}')
 
