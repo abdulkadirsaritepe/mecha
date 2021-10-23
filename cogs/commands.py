@@ -215,14 +215,15 @@ class Commands(Cog):
     @command()
     @commands.has_permissions(manage_channels=True)
     async def doorlock(self, ctx, status="close"):
-        if str(status).lower() != "open" or str(status).lower() != "close":
+        if str(status).lower() != "open" and str(status).lower() != "close":
             await ctx.send("Geçersiz argüman!")
         else:
             self.doorStatus = status
             if str(status).lower() == "open":
                 await ctx.send("Kapı kilidi açıldı!")
             elif str(status).lower() == "close":
-                await ctx.send("Kapı kilitlendi!") 
+                await ctx.send("Kapı kilitlendi!")
+        await ctx.message.delete()
 
     @command()
     @commands.has_permissions(manage_channels=True)
