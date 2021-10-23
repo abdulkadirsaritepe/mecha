@@ -1,5 +1,6 @@
 
 from math import log
+from os import stat
 from re import T
 from discord.enums import _is_descriptor
 from discord.ext.commands import Cog, command
@@ -31,6 +32,7 @@ class Commands(Cog):
         self.filterSettings = {}
         self.logs = {}
         self.doorStatusNotificationChannelId = None
+        self.doorStatus = "open"
         self.rpi = RPi()
 
     @Cog.listener()
@@ -92,16 +94,17 @@ class Commands(Cog):
 
     @tasks.loop(seconds=2)
     async def door_check(self):
-        guild = self.bot.get_guild(id=699224778824745003)
-        doorStatusNotificationChannel = discord.utils.get(guild.text_channels, id=int(self.doorStatusNotificationChannelId))
-        trespassing, result = self.rpi.mech_door()
-        if trespassing:
-            member = result[0]
-            await doorStatusNotificationChannel.send(f'**{member}** tarafından topluluk odası kapısı açıldı.')
-            self.rpi.open_door()
-        elif trespassing == False:
-            cardid = result
-            await doorStatusNotificationChannel.send(f'Kart numarası **{cardid}** olan birisi topluluk odası kapısını açmaya çalıştı.')
+        if self.doorStatus == "open":
+            guild = self.bot.get_guild(id=699224778824745003) # TODO
+            doorStatusNotificationChannel = discord.utils.get(guild.text_channels, id=int(self.doorStatusNotificationChannelId))
+            trespassing, result = self.rpi.mech_door()
+            if trespassing:
+                member = result[0]
+                await doorStatusNotificationChannel.send(f'**{member}** tarafından topluluk odası kapısı açıldı.')
+                self.rpi.open_door()
+            elif trespassing == False:
+                cardid = result
+                await doorStatusNotificationChannel.send(f'Kart numarası **{cardid}** olan birisi topluluk odası kapısını açmaya çalıştı.')
 
     @door_check.before_loop
     async def before_check(self):
@@ -208,7 +211,19 @@ class Commands(Cog):
         else:
             self.rpi.remove_member(name, surname)
             await ctx.send("Kişi veri tabanından silindi.")
-                 
+
+    @command()
+    @commands.has_permissions(manage_channels=True)
+    async def doorlock(self, ctx, status="close"):
+        if str(status).lower() != "open" or str(status).lower() != "close":
+            await ctx.send("Geçersiz argüman!")
+        else:
+            self.doorStatus = status
+            if str(status).lower() == "open":
+                await ctx.send("Kapı kilidi açıldı!")
+            elif str(status).lower() == "close":
+                await ctx.send("Kapı kilitlendi!") 
+
     @command()
     @commands.has_permissions(manage_channels=True)
     async def adduser(self, ctx, userId, channelId=None):

@@ -59,7 +59,7 @@ console = Console(client, bot_name)
 async def on_connect():
 	print('waiting...')
 	# getting console webhook
-	await console.get_console_info()
+	await console.get_channel()
 	# waiting until the bot is ready.
 	await client.wait_until_ready()
 	# after bot is ready, the function finishes.

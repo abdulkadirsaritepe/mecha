@@ -17,6 +17,7 @@ def rpi_start(start_type):
 		"full_start": ["sudo apt-get update", "sudo apt full-upgrade", f"rm -rf {bot_dir}", f"git clone {repo} {bot_dir}", f"pip3 install -U -r {bot_dir}/requirements.txt"], # , f"lxterminal --command='python3 {bot_dir}/mainbot.py'"
 		"start": ["sudo apt-get update", "sudo apt-get upgrade", f"rm -rf {bot_dir}", f"git clone {repo} {bot_dir}", f"pip3 install -U -r {bot_dir}/requirements.txt"],
 		"quick_start": [f"rm -rf {bot_dir}", f"git clone {repo} {bot_dir}", f"pip3 install -U -r {bot_dir}/requirements.txt"],
+		"qquick_start": [f"rm -rf {bot_dir}", f"git clone {repo} {bot_dir}"],
 		"full_restart": ["sudo reboot"],
 		"restart": [f"pip3 install -U -r {bot_dir}/requirements.txt"]
 	}
@@ -36,14 +37,15 @@ if sys.platform == "linux":
 	adminLogDir = f'{logDir}/admin.json'
 	requirementsDir = f'{mainDir}/requirements.txt'
 	rpi_start(start_type="start") # TODO
+	# Import function files
+	from mecha.cogs.console import Console # TODO
 else:
 	rpi_os = False
 	mainDir = "C:\Dev\Github\src\mecha"
 	logDir = "C:\Dev\Github\src\mecha\cogs\Logs"
 	adminLogDir = f'{logDir}\\admin.json'
-
-# Import function files
-from cogs.console import Console # TODO
+	# Import function files
+	from cogs.console import Console # TODO
 		
 # Take admin data
 with open(adminLogDir) as adminLogFile:
@@ -72,7 +74,7 @@ console = Console(client, bot_tag)
 async def on_connect():
 	print('waiting...')
 	# getting console webhook
-	await console.get_console_info()
+	await console.get_channel()
 	# waiting until the bot is ready.
 	await client.wait_until_ready()
 	# after bot is ready, the function finishes.
@@ -185,6 +187,8 @@ class DiscordBot(Cog):
 					rpi_start("full_restart")
 				elif start_type == "quick":
 					rpi_start("quick_start")
+				elif start_type == "qquick":
+					rpi_start("qquick_start")
 				elif start_type == "start":
 					rpi_start("start")
 				elif start_type == "fullstart":
