@@ -216,7 +216,7 @@ class Commands(Cog):
     @commands.has_permissions(manage_channels=True)
     async def doorlock(self, ctx, status="close"):
         if str(status).lower() != "open" and str(status).lower() != "close":
-            await ctx.send("Geçersiz argüman!")
+            await ctx.send("Invalid keyword!")
         else:
             self.doorStatus = status
             if str(status).lower() == "open":
