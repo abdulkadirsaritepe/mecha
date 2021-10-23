@@ -73,17 +73,17 @@ async def on_ready():
 
 # Add imported functions
 client.add_cog(Commands(client, bot_name, console))
-client.add_cog(Youtube(client, console))
-client.add_cog(Instagram(client, console))
-client.add_cog(ReactionApplications(client, console))
-client.add_cog(Pin(client))
-client.add_cog(Respond(client))
-client.add_cog(ReactionCheck(client))
-client.add_cog(Rates(client))
-client.add_cog(Rates2(client))
-client.add_cog(Covid(client))
-client.add_cog(Covid2(client))
-client.add_cog(StonePaperScissor(client))
+# * client.add_cog(Youtube(client, console))
+# * client.add_cog(Instagram(client, console))
+# * client.add_cog(ReactionApplications(client, console))
+# * client.add_cog(Pin(client))
+# * client.add_cog(Respond(client))
+# * client.add_cog(ReactionCheck(client))
+# * client.add_cog(Rates(client))
+# * client.add_cog(Rates2(client))
+# * client.add_cog(Covid(client))
+# * client.add_cog(Covid2(client))
+# * client.add_cog(StonePaperScissor(client))
 
 @client.command()
 async def close(ctx):
