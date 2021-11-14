@@ -94,15 +94,22 @@ class Commands(Cog):
 
     @tasks.loop(seconds=2)
     async def door_check(self):
+        guild = self.bot.get_guild(id=699224778824745003) # TODO
+        doorStatusNotificationChannel = discord.utils.get(guild.text_channels, id=int(self.doorStatusNotificationChannelId))
+        trespassing, result = self.rpi.mech_door()
         if self.doorStatus == "open":
-            guild = self.bot.get_guild(id=699224778824745003) # TODO
-            doorStatusNotificationChannel = discord.utils.get(guild.text_channels, id=int(self.doorStatusNotificationChannelId))
-            trespassing, result = self.rpi.mech_door()
             if trespassing:
                 member = result[0]
                 await doorStatusNotificationChannel.send(f'**{member}** tarafından topluluk odası kapısı açıldı.')
                 self.rpi.open_door()
             elif trespassing == False:
+                cardid = result
+                await doorStatusNotificationChannel.send(f'Kart numarası **{cardid}** olan birisi topluluk odası kapısını açmaya çalıştı.')
+        else:
+            if trespassing:
+                member = result[0]
+                await doorStatusNotificationChannel.send(f'**{member}** tarafından topluluk odası kapısı açılmaya çalışıldı, kapı kilitli olduğu için kapı açılmadı.')
+            else:
                 cardid = result
                 await doorStatusNotificationChannel.send(f'Kart numarası **{cardid}** olan birisi topluluk odası kapısını açmaya çalıştı.')
 
