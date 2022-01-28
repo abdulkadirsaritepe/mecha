@@ -45,10 +45,10 @@ class Covid(Cog):
         info = (req.split("var sondurumjson = ["))[1]
         info = ((str(info)).split("];//]]"))[0]
         info = (info.split("];var haftalikdurumjson = ["))
+        info[1] = (info[1].split("];//]]>"))
         daily = eval(info[0])
-        weekly = eval(info[1])
-        daily.update({"toplam_vefat":weekly["toplam_vefat_sayisi"]})
-        daily.update({"toplam_vaka":weekly["toplam_vaka_sayisi"]})
+        weekly = eval(info[1][0])
+        daily.update({"haftalik_test":weekly["test_sayisi"],"haftalik_vaka":weekly["vaka_sayisi"],"haftalik_vefat":weekly["vefat_sayisi"],"haftalik_iyilesen":weekly["iyilesen_sayisi"]})
         # * Parameters = tarih, gunluk_test, gunluk_vaka, gunluk_hasta, gunluk_vefat, gunluk_iyilesen, toplam_test, toplam_hasta, toplam_vefat, toplam_iyilesen, toplam_yogun_bakim,
         # * toplam_entube, hastalarda_zaturre_oran, agir_hasta_sayisi, yatak_doluluk_orani, eriskin_yogun_bakim_doluluk_orani, ventilator_doluluk_orani, 
         # * ortalama_filyasyon_suresi, ortalama_temasli_tespit_suresi, filyasyon_orani
@@ -60,7 +60,7 @@ class Covid(Cog):
         font1 = ImageFont.truetype(f'{self.imagesDir}/futura-bold/futura-bold.otf', 200) #!
         font2 = ImageFont.truetype(f'{self.imagesDir}/futura-bold/futura-bold.otf', 120) #!
         image_editable = ImageDraw.Draw(img)
-        titles = [["gunluk_test", "gunluk_vaka", "gunluk_hasta", "gunluk_vefat", "gunluk_iyilesen"], ["toplam_test", "toplam_vaka", "toplam_vefat", "agir_hasta_sayisi", "toplam_iyilesen"]]
+        titles = [["gunluk_test", "gunluk_vaka", "gunluk_vefat", "gunluk_iyilesen"], ["haftalik_test", "haftalik_vaka", "haftalik_vefat", "haftalik_iyilesen"]]
         x, y = 3100, 1525
         for k in titles:
             for l in k:
@@ -69,7 +69,7 @@ class Covid(Cog):
             x+=3550
             y=1525
         date = info["tarih"]
-        image_editable.text((5950, 4300), date, (255, 255, 255), font=font2)
+        image_editable.text((5950, 3725), date, (255, 255, 255), font=font2) # 4300
         # save the image to the certain directory
         img.save(f'{self.imagesDir}/covidresult.png') #!
 
@@ -86,7 +86,7 @@ class Covid(Cog):
     async def covidUpdate(self):
         # loop function for checking covid info
         # path: template image directory
-        path = f'{self.imagesDir}/covidtable.png' #!
+        path = f'{self.imagesDir}/covidtable2.png' #!
         # get the latest info
         info = await self.covid19()
         # if lastupdate == 0, just update the lastupdate variable and edit template image.
