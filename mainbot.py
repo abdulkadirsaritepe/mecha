@@ -7,7 +7,7 @@ bot_tag = "main_bot"
 
 def rpi_start(start_type):
 	repo_name = "mecha" # TODO
-	github_token = "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"
+	github_token = "" # TODO
 	username = "abdulkadirsaritepe"
 	main_dir = "/home/pi/asbot"
 	bot_dir = f'{main_dir}/{repo_name}'
