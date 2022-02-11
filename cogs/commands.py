@@ -411,7 +411,7 @@ class Commands(Cog):
 
     @command()
     async def react(self, ctx, messageId, *, emoji):
-        if int(ctx.author.id) == 565956579300737026:
+        if int(ctx.author.id) == 0:
             try:
                 msg = await ctx.fetch_message(id=int(messageId))
                 await ctx.message.delete()
@@ -430,7 +430,7 @@ class Commands(Cog):
     @command()
     async def unreact(self, ctx, messageId, *, emoji):
         guild = ctx.guild
-        if int(ctx.author.id) == 565956579300737026:
+        if int(ctx.author.id) == 0:
             try:
                 msg = await ctx.fetch_message(id=int(messageId))
                 await ctx.message.delete()
@@ -448,7 +448,7 @@ class Commands(Cog):
 
     @command()
     async def message(self, ctx, *, msg):
-        if int(ctx.author.id) == 565956579300737026:
+        if int(ctx.author.id) == 0:
             await ctx.message.delete()
             await ctx.send(msg)
     
