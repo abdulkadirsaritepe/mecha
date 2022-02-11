@@ -8,13 +8,13 @@
     "main_bot": {
         "name": "Wrench",
         "prefix": "!!",
-        "token": "Njk4NDQ5OTUzMDA5NDM0Njk0.XpGANQ.SrS7X_kRumepI0tqP5WDV7cIMpY",
+        "token": "",
         "console_webhook": null
     },
     "mecha": {
         "name": "Mecha",
         "prefix": "&",
-        "token": "NzU2OTM4NzE2NjUxNDU0NTQ1.X2ZIHQ.rFZVnxMufC89mKR0auyQOuF-YBs",
+        "token": "",
         "servers": [],
         "console_webhook": null
     },
