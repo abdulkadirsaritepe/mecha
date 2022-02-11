@@ -1,9 +1,9 @@
 {
-    "sudo_password": "asadmin",
+    "sudo_password": "admin",
     "sudo_password_rpi": "",
-    "admin_guild": 699224778824745003,
-    "superadmin_id": 565956579300737026,
-    "console_channel": 886889734759120936,
+    "admin_guild": 0,
+    "superadmin_id": 0,
+    "console_channel": 0,
     "console_webhook": null,
     "main_bot": {
         "name": "Wrench",
