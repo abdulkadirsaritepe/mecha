@@ -10,3 +10,4 @@ This code is programmed for Middle East Technical University 'Metu Mech' student
 Also, the bot has an electricity powered and raspberry pi controlled door lock id check system.
 
   The shematic of the circuit for relay and rfid reader is provided below.
+![rpi_mech](https://user-images.githubusercontent.com/44478858/153622273-f262d642-e47f-4bcc-b82e-59ebabbac9da.png)
