@@ -11,4 +11,4 @@ multidict==4.5.2
 websockets==9.1
 yarl==1.3.0
 pytz
-pillow==9.0.0
+pillow==9.0.1
